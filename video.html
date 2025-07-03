@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio</title>
+    <style>
+        /* Reset e Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Navegação */
+        nav {
+            background-color: #343a40;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Seções */
+        section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #6e48aa;
+            font-size: 2rem;
+        }
+        
+        /* Sobre Mim */
+        #sobre {
+            background-color: white;
+        }
+        
+        .sobre-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .sobre-texto {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .sobre-texto p {
+            margin-bottom: 1rem;
+        }
+        
+        .avatar {
+            flex: 0 0 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 5px solid #6e48aa;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Habilidades */
+        #habilidades {
+            background-color: #f8f9fa;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        
+        .skill-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 150px;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #6e48aa;
+        }
+        
+        
+        
+        /* Contato */
+        #contato {
+            background-color: white;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            padding: 0.8rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        button[type="submit"] {
+            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        
+        button[type="submit"]:hover {
+            opacity: 0.9;
+        }
+        
+        /* Rodapé */
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #9d50bb;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .sobre-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ruan Silva</h1>
+        <p>Desenvolvedor Python</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#sobre">Sobre Mim</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+    
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <div class="sobre-content">
+            <div class="sobre-texto">
+                <p>Olá! Meu nome é Ruan Da Silva Vieira e sou um entusiasta da programação com foco em Python e desenvolvimento web.</p>
+                <p>Minha jornada na programação começou na epoca da pandemia onde teve uma grande alta em programação e onde eu comecei a assistir um pouco sobre e me interessando tambem sobre essa area. Desde então, venho me aperfeiçoando constantemente e buscando uma oportunidade para melhorar como programador.</p>
+                <p>Quando não estou codando, gosto de Jogar (alías to começando a me interessar nessa area tambem), ver filmes/séries e gosto de ir malhar. Acredito que o equilíbrio entre vida pessoal e profissional é essencial para criar os melhores resultados.</p>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="habilidades">
+        <h2>Habilidades</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <div class="skill-icon">🐍</div>
+                <h3>Python</h3>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🌐</div>
+                <h3>HTML5</h3>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🎨</div>
+                <h3>CSS3</h3>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contato">
+        <h2>Entre em Contato</h2>
+    <p> E-mail:ruanj8238@gmail.com</p>
+    <p>Whatsapp: (21) 97056-9946 🔗</p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Meu Portfólio. Todos os direitos reservados.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/ruan-silva-vieira-8bb321341?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn">🔗</a>
+            <a href="https://github.com/ruanvieir" aria-label="GitHub">🐱</a>
+        </div>
+    </footer>
+</body>
+</html>
+
